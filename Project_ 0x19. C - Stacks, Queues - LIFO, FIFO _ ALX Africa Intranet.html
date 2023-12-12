@@ -1,0 +1,3161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://intranet.alxswe.com/projects/249#task-1192 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="google" content="notranslate">
+
+      <script type="text/javascript" async="" src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/js"></script><script async="" src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/gtm.js"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({"userId":513210,"visitorType":"student","batch":{"id":124,"fullNameWithC":"AFR-0823 (C#19)","schoolLocation":{"id":1,"name":"ALX Africa"}},"curriculum":{"id":1,"name":"SE Foundations"}});
+
+    window.gtm_user_custom_event = function (name, options) {
+      if (typeof name === 'undefined') {
+        return;
+      }
+
+      window.dataLayer.push({
+        customEventOptions: typeof options !== 'undefined' ? options : {},
+        event: name,
+      });
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N4C8MF2');</script>
+  <!-- End Google Tag Manager -->
+
+
+    <title>Project: 0x19. C - Stacks, Queues - LIFO, FIFO | ALX Africa Intranet</title>
+
+      <link rel="stylesheet" href="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/xgz4ilr.css">
+      <link rel="stylesheet" media="all" href="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/application_alx-8941610700856adf24a6e389e4f744b0cefa6db7b3bc8157ea63b16ddcf11590.css">
+      <script src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/loader.js"></script>
+      <script src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/application-e108fb75f939d72d47f0e99c7163aee8c5572427c1e62e5b50334df42d03f2d3.js"></script>
+      <link rel="shortcut icon" type="image/x-icon" href="https://intranet.alxswe.com/favicon_alx.ico">
+      <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="_0Ks7aioALnONb7oM8M1aXzt3seuhXPSsNPg-gFRPwlp3PnodFRLLoDzcOa52Rv-SU47fJcPWZkppygRwrQqkQ">
+
+      <link rel="apple-touch-icon" href="https://intranet.alxswe.com/apple-touch-icon_alx.png">
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- Store user timezone -->
+      <script>
+        Cookies.set('timezone', (new Date()).getTimezoneOffset() / -60.0);
+      </script>
+
+      <!-- intro.js for interactive onboarding -->
+
+      <!-- React -->
+      <script src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/application-5e52ac700b37dc1d7140.js"></script>
+      <link rel="stylesheet" media="screen" href="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/application-87456da7.css">
+  <style>
+      .quiz_questions_show_container .quiz_questions_results {
+        position: fixed;
+        bottom: 38px;
+        right: 99px;
+        background-color: #120101;
+        border-radius: 5px;
+      }
+	  .quiz_questions_show_container .quiz_questions_results button {
+        width: 150px;
+      }
+      .quiz_questions_show_container .quiz_questions_results .error {
+        margin: 0px;
+    display: block;
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+    .quiz_questions_show_container .quiz_questions_results {
+      bottom: 26px;
+      right: 82px;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+    .quiz_questions_show_container .quiz_questions_results {
+      bottom: 15px;
+      right: 73px;
+    }
+  }
+    </style><style id="particles">
+		#tsparticles { 
+			position: relative;
+			z-index: -1; 
+		}
+
+		body {
+			position: relative;
+			z-index: 0;
+		}
+		
+		body.dark main {
+    background-color: transparent !important;
+}</style><style id="collapse-style">
+		:has(.student_task_done.yes) > .panel-body,
+		:has(.student_task_done.yes) > .list-group 
+		{ display: none; }</style></head>
+
+  <body class="signed_in env_production notranslate" translate="no" data-theme-suffix="_alx" inmaintabuse="1" cz-shortcut-listen="true">
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4C8MF2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+      <input type="hidden" id="hbtn-slack-url" value="https://alx-students.slack.com">
+      <nav class="navbar navbar-default navbar-fixed-top topbar visible-xs">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="https://intranet.alxswe.com/">
+      <div class="logo"></div>
+</a>  </div>
+
+  <div class="collapse navbar-collapse navigation" id="navbar-mobile">
+    <ul class="nav navbar-nav">
+      
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="My Planning"><a href="https://intranet.alxswe.com/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="" data-original-title="Projects"><a href="https://intranet.alxswe.com/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="QA Reviews I can make"><a href="https://intranet.alxswe.com/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Evaluation quizzes"><a href="https://intranet.alxswe.com/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Curriculums"><a href="https://intranet.alxswe.com/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="" data-original-title="Concepts"><a href="https://intranet.alxswe.com/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="" data-original-title="Conference rooms"><a href="https://intranet.alxswe.com/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Servers"><a href="https://intranet.alxswe.com/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="" data-original-title="Sandboxes"><a href="https://intranet.alxswe.com/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Video on demand"><a href="https://intranet.alxswe.com/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Peers"><a href="https://intranet.alxswe.com/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Captain&#39;s Logs"><a href="https://intranet.alxswe.com/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain's Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="My Profile">
+    <a href="https://intranet.alxswe.com/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url(&#39;https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/513/210/thumb/78FA8983-FA60-4EF9-8C84-44FB83326F16.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231212%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20231212T113216Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=36d173836df0eb72a7cd88b11c791724e7958d6a80325a06e00ae0c67eaef807&#39;)"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      <div class="hidden-xs navigation sidebar">
+  <a class="logo-container" href="https://intranet.alxswe.com/">
+    <div class="logo"></div>
+</a>
+  <ul>
+    
+
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="My Planning"><a href="https://intranet.alxswe.com/planning/me"><div class="icon "><i aria-hidden="true" class="fa-solid fa-calendar "></i></div><div class="visible-xs">My Planning</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-current-projects-item" title="" data-original-title="Projects"><a href="https://intranet.alxswe.com/projects/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-code-fork "></i></div><div class="visible-xs">Projects</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="QA Reviews I can make"><a href="https://intranet.alxswe.com/corrections/to_review"><div class="icon "><i aria-hidden="true" class="fa-solid fa-check "></i></div><div class="visible-xs">QA Reviews I can make</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Evaluation quizzes"><a href="https://intranet.alxswe.com/dashboards/my_current_evaluation_quizzes"><div class="icon "><i aria-hidden="true" class="fa-solid fa-question "></i></div><div class="visible-xs">Evaluation quizzes</div></a></li>
+
+    <hr title="My resources">
+
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Curriculums"><a href="https://intranet.alxswe.com/dashboards/my_curriculums"><div class="icon "><i aria-hidden="true" class="fa-solid fa-graduation-cap "></i></div><div class="visible-xs">Curriculums</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-concepts-item" title="" data-original-title="Concepts"><a href="https://intranet.alxswe.com/concepts"><div class="icon "><i aria-hidden="true" class="fa-solid fa-file-text "></i></div><div class="visible-xs">Concepts</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-video-rooms" title="" data-original-title="Conference rooms"><a href="https://intranet.alxswe.com/dashboards/video_rooms"><div class="icon "><i aria-hidden="true" class="fa-solid fa-comments "></i></div><div class="visible-xs">Conference rooms</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Servers"><a href="https://intranet.alxswe.com/servers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-server "></i></div><div class="visible-xs">Servers</div></a></li>
+    <li data-container="body" data-placement="right" data-toggle="tooltip" id="sidebar-dashboards-my-containers" title="" data-original-title="Sandboxes"><a href="https://intranet.alxswe.com/user_containers/current"><div class="icon "><i aria-hidden="true" class="fa-solid fa-terminal "></i></div><div class="visible-xs">Sandboxes</div></a></li>
+    
+    <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Video on demand"><a href="https://intranet.alxswe.com/dashboards/videos"><div class="icon "><i aria-hidden="true" class="fa-solid fa-film "></i></div><div class="visible-xs">Video on demand</div></a></li>
+
+      <hr title="My campus">
+
+      
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Peers"><a href="https://intranet.alxswe.com/users/peers"><div class="icon "><i aria-hidden="true" class="fa-solid fa-users "></i></div><div class="visible-xs">Peers</div></a></li>
+      <li data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Captain&#39;s Logs"><a href="https://intranet.alxswe.com/dashboards/my_captain_log"><div class="icon "><i aria-hidden="true" class="fa-solid fa-book "></i></div><div class="visible-xs">Captain's Logs</div></a></li>
+
+
+<hr class="visible-xs">
+
+<li>
+
+      <div data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="Discord">
+        <a rel="noreferrer" target="_blank" href="https://discord.com/app">
+          <div class="icon discord">
+            <i aria-hidden="true" class="fa-brands fa-discord "></i>
+          </div>
+          <div class="visible-xs">Discord</div>
+</a>      </div>
+
+  <div data-container="body" data-placement="right" data-toggle="tooltip" title="" data-original-title="My Profile">
+    <a href="https://intranet.alxswe.com/users/my_profile">
+        <div class="image ">
+          <div class="inner" style="background-image: url(&#39;https://s3.amazonaws.com/alx-intranet.hbtn.io/users/photos/000/513/210/thumb/78FA8983-FA60-4EF9-8C84-44FB83326F16.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231212%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20231212T113216Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=36d173836df0eb72a7cd88b11c791724e7958d6a80325a06e00ae0c67eaef807&#39;)"></div>
+        </div>
+
+      <div class="visible-xs">My Profile</div>
+</a>  </div>
+</li>
+
+
+  </ul>
+</div>
+
+
+    <main>
+        <div id="layout-bars">
+          
+          
+          
+          
+          
+          
+        </div>
+
+      <article class="">
+          <div class="alert alert-info sm-gap big-zindex">
+              You just released the advanced tasks of this project. Have fun!
+          </div>
+
+        
+<div class="project row">
+  <div class="col-xs-12 col-md-10 col-lg-8 contains-images">
+
+      <h1 class="gap">0x19. C - Stacks, Queues - LIFO, FIFO</h1>
+
+  <div data-react-class="tags/Tags" data-react-props="{&quot;tags&quot;:[{&quot;id&quot;:7,&quot;value&quot;:&quot;C&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:16,&quot;value&quot;:&quot;Group project&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:17,&quot;value&quot;:&quot;Algorithm&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;},{&quot;id&quot;:18,&quot;value&quot;:&quot;Data structure&quot;,&quot;author_id&quot;:null,&quot;created_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;,&quot;updated_at&quot;:&quot;2022-06-16T01:59:38.000Z&quot;}]}" data-react-cache-id="tags/Tags-0"><div class="align-items-center d-flex flex-wrap gap-3 my-2"><span class="label label-primary" style="font-size: 14px;">C</span><span class="label label-primary" style="font-size: 14px;">Group project</span><span class="label label-primary" style="font-size: 14px;">Algorithm</span><span class="label label-primary" style="font-size: 14px;">Data structure</span></div></div>
+
+  <div data-react-class="projects/ProjectMetadata" data-react-props="{&quot;metadata&quot;:{&quot;author&quot;:&quot;Julien Barbier&quot;,&quot;weight&quot;:2,&quot;correction&quot;:{&quot;released&quot;:false,&quot;auto_correction_available_at&quot;:&quot;2023-12-13T00:00:00.000+03:00&quot;,&quot;requires_auto_correction&quot;:true,&quot;requires_manual_correction&quot;:false},&quot;bpi&quot;:{&quot;current&quot;:true,&quot;started&quot;:false,&quot;in_second_deadline&quot;:false,&quot;starts_at&quot;:&quot;2023-12-12T06:00:00.000+03:00&quot;,&quot;ends_at&quot;:&quot;2023-12-15T06:00:00.000+03:00&quot;,&quot;second_deadline_at&quot;:&quot;2023-12-18T06:00:00.000+03:00&quot;},&quot;team&quot;:{&quot;in_team_of&quot;:2,&quot;members&quot;:[&quot;Ibrahim Hanafi&quot;]}}}" data-react-cache-id="projects/ProjectMetadata-0"><ul class="list-group metadata" id="project-metadata"><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-user fa-fw"></i> By: Julien Barbier</li><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-gear fa-fw"></i> Weight: 2</li><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-users fa-fw"></i> Project to be done in teams of 2 people (your team: Ibrahim Hanafi)</li><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-calendar fa-fw"></i> Project will start <span data-container="body" data-html="false" data-placement="auto top" data-toggle="tooltip" title="" data-original-title="2023-12-12 06:00 (GMT+03:00)"><span class="datetime">Dec 12, 2023 5:00 AM</span></span>, must end by <span data-container="body" data-html="false" data-placement="auto top" data-toggle="tooltip" title="" data-original-title="2023-12-15 06:00 (GMT+03:00)"><span class="datetime">Dec 15, 2023 5:00 AM</span></span></li><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-check fa-fw"></i> Checker will be released at <span data-container="body" data-html="false" data-placement="auto top" data-toggle="tooltip" title="" data-original-title="2023-12-13 00:00 (GMT+03:00)"><span class="datetime">Dec 12, 2023 11:00 PM</span></span></li><li class="list-group-item"><i aria-hidden="true" class="fa-solid fa-square-check fa-fw"></i> An auto review will be launched at the deadline</li></ul></div>
+
+
+
+
+    
+
+
+    <div id="project_id" style="display: none" data-project-id="249"></div>
+
+
+
+      
+
+      
+
+      <div class="panel panel-default" id="project-description">
+  <div class="panel-body">
+    <p><img src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/CFYYWy6UEAE9Ow-.png"><br>
+<br></p>
+
+<h2>Resources</h2>
+
+<p><strong>Read or watch</strong>:</p>
+
+<ul>
+<li><a href="https://intranet.alxswe.com/rltoken/tn1X658KGumYYq_szFJI5w" title="Google" target="_blank">Google</a> </li>
+<li><a href="https://intranet.alxswe.com/rltoken/0KVWTdE8xXy__jUfBfakCw" title="How do I use extern to share variables between source files in C?" target="_blank">How do I use extern to share variables between source files in C?</a></li>
+<li><a href="https://intranet.alxswe.com/rltoken/udmomL4F4mF630D2Z-ltqg" title="Stacks and Queues in C" target="_blank">Stacks and Queues in C</a> </li>
+<li><a href="https://intranet.alxswe.com/rltoken/fj_-SJXW-pWxgAnstsARoQ" title="Stack operations" target="_blank">Stack operations</a></li>
+<li><a href="https://intranet.alxswe.com/rltoken/6Y_GVoIH_rV45xd7w0a9FA" title="Queue operations" target="_blank">Queue operations</a></li>
+</ul>
+
+<h2>Learning Objectives</h2>
+
+<p>At the end of this project, you are expected to be able to <a href="https://intranet.alxswe.com/rltoken/_kxhiyVFey_mAGnzuHKL1w" title="explain to anyone" target="_blank">explain to anyone</a>, <strong>without the help of Google</strong>:</p>
+
+<h3>General</h3>
+
+<ul>
+<li>What do LIFO and FIFO mean</li>
+<li>What is a stack, and when to use it</li>
+<li>What is a queue, and when to use it</li>
+<li>What are the common implementations of stacks and queues</li>
+<li>What are the most common use cases of stacks and queues</li>
+<li>What is the proper way to use global variables</li>
+</ul>
+
+<h3>Copyright - Plagiarism</h3>
+
+<ul>
+<li>You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.</li>
+<li>You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work. </li>
+<li>You are not allowed to publish any content of this project.</li>
+<li>Any form of plagiarism is strictly forbidden and will result in removal from the program.</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<h3>General</h3>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c89</li>
+<li>All your files should end with a new line</li>
+<li>A <code>README.md</code> file, at the root of the folder of the project is mandatory</li>
+<li>Your code should use the <code>Betty</code> style. It will be checked using <a href="https://github.com/alx-tools/Betty/blob/master/betty-style.pl" title="betty-style.pl" target="_blank">betty-style.pl</a> and <a href="https://github.com/alx-tools/Betty/blob/master/betty-doc.pl" title="betty-doc.pl" target="_blank">betty-doc.pl</a></li>
+<li>You allowed to use a maximum of one global variable</li>
+<li>No more than 5 functions per file</li>
+<li>You are allowed to use the C standard library</li>
+<li>The prototypes of all your functions should be included in your header file called <code>monty.h</code></li>
+<li>Don’t forget to push your header file</li>
+<li>All your header files should be include guarded</li>
+<li>You are expected to do the tasks in the order shown in the project</li>
+</ul>
+
+<h3>GitHub</h3>
+
+<p><strong>There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.</strong></p>
+
+<h2>More Info</h2>
+
+<h3>Data structures</h3>
+
+<p>Please use the following data structures for this project. Don’t forget to include them in your header file.</p>
+
+<pre><code>/**
+ * struct stack_s - doubly linked list representation of a stack (or queue)
+ * @n: integer
+ * @prev: points to the previous element of the stack (or queue)
+ * @next: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct stack_s
+{
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
+} stack_t;
+</code></pre>
+
+<pre><code>/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct instruction_s
+{
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
+</code></pre>
+
+<h3>Compilation &amp; Output</h3>
+
+<ul>
+<li>Your code will be compiled this way:</li>
+</ul>
+
+<pre><code>$ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+</code></pre>
+
+<ul>
+<li>Any output must be printed on <code>stdout</code></li>
+<li>Any error message must be printed on <code>stderr</code>
+
+<ul>
+<li><a href="https://intranet.alxswe.com/rltoken/NUGvCZqs609VjEHeutkICw" title="Here is a link to a GitHub repository" target="_blank">Here is a link to a GitHub repository</a> that could help you making sure your errors are printed on <code>stderr</code></li>
+</ul></li>
+</ul>
+
+<h3>Tests</h3>
+
+<p>We strongly encourage you to work all together on a set of tests</p>
+
+<h3>The Monty language</h3>
+
+<p>Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.</p>
+
+<p><strong>Monty byte code files</strong></p>
+
+<p>Files containing Monty byte codes usually have the <code>.m</code> extension. Most of the industry uses this standard but it is not required by the specification of the language.
+There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:</p>
+
+<pre><code>julien@ubuntu:~/monty$ cat -e bytecodes/000.m
+push 0$
+push 1$
+push 2$
+  push 3$
+                   pall    $
+push 4$
+    push 5    $
+      push    6        $
+pall$
+julien@ubuntu:~/monty$
+</code></pre>
+
+<p>Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:</p>
+
+<pre><code>julien@ubuntu:~/monty$ cat -e bytecodes/001.m
+push 0 Push 0 onto the stack$
+push 1 Push 1 onto the stack$
+$
+push 2$
+  push 3$
+                   pall    $
+$
+$
+                           $
+push 4$
+$
+    push 5    $
+      push    6        $
+$
+pall This is the end of our program. Monty is awesome!$
+julien@ubuntu:~/monty$
+</code></pre>
+
+<p><strong>The monty program</strong></p>
+
+<ul>
+<li>Usage: <code>monty file</code>
+
+<ul>
+<li>where <code>file</code> is the path to the file containing Monty byte code</li>
+</ul></li>
+<li>If the user does not give any file or more than one argument to your program, print the error message <code>USAGE: monty file</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If, for any reason, it’s not possible to open the file, print the error message <code>Error: Can't open file &lt;file&gt;</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code>
+
+<ul>
+<li>where <code>&lt;file&gt;</code> is the name of the file</li>
+</ul></li>
+<li>If the file contains an invalid instruction, print the error message <code>L&lt;line_number&gt;: unknown instruction &lt;opcode&gt;</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code>
+
+<ul>
+<li>where <line_number> is the line number where the instruction appears.</line_number></li>
+<li>Line numbers always start at 1</li>
+</ul></li>
+<li>The monty program runs the bytecodes line by line and stop if either:
+
+<ul>
+<li>it executed properly every line of the file</li>
+<li>it finds an error in the file</li>
+<li>an error occured</li>
+</ul></li>
+<li>If you can’t malloc anymore, print the error message <code>Error: malloc failed</code>, followed by a new line, and exit with status <code>EXIT_FAILURE</code>.</li>
+<li>You have to use <code>malloc</code> and <code>free</code> and are not allowed to use any other function from <code>man malloc</code> (realloc, calloc, …)</li>
+</ul>
+
+  </div>
+</div>
+
+
+      
+
+        <div class="panel panel-default" id="project-quiz-questions-title">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Quiz questions
+      </h3>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="alert alert-info">
+          <strong>Great!</strong>
+          You've completed the quiz successfully! Keep going!
+          <span id="quiz_questions_collapse_toggle">(Show quiz)</span>
+        </div>
+
+      <section class="quiz_questions_show_container" style="display: none;">
+          <div class="quiz_question_item_container" data-role="quiz_question926" data-position="2">
+            <div class=" clearfix" id="quiz_question-926">
+
+    <h4 class="quiz_question">
+        
+        Question #0
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Which of these stacks are reversing the order of insertion? (select all possible answers)</p>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="926">
+                <li class="">
+
+  <input type="checkbox" name="926" id="926-1573675540271" value="1573675540271" data-quiz-answer-id="1573675540271" data-quiz-question-id="926" disabled="disabled" checked="checked">
+  <label for="926-1573675540271"><p>FILO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="926" id="926-1573675552092" value="1573675552092" data-quiz-answer-id="1573675552092" data-quiz-question-id="926" disabled="disabled">
+  <label for="926-1573675552092"><p>LILO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="926" id="926-1573675535051" value="1573675535051" data-quiz-answer-id="1573675535051" data-quiz-question-id="926" disabled="disabled">
+  <label for="926-1573675535051"><p>FIFO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="926" id="926-1573675545597" value="1573675545597" data-quiz-answer-id="1573675545597" data-quiz-question-id="926" disabled="disabled" checked="checked">
+  <label for="926-1573675545597"><p>LIFO</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question929" data-position="4">
+            <div class=" clearfix" id="quiz_question-929">
+
+    <h4 class="quiz_question">
+        
+        Question #1
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What’s the command used to add a new element to a stack?</p>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="929">
+                <li class="">
+
+  <input type="radio" name="929" id="929-1573675585180" value="1573675585180" data-quiz-answer-id="1573675585180" data-quiz-question-id="929" disabled="disabled">
+  <label for="929-1573675585180"><p>pop</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="929" id="929-1573675578042" value="1573675578042" data-quiz-answer-id="1573675578042" data-quiz-question-id="929" disabled="disabled" checked="checked">
+  <label for="929-1573675578042"><p>push</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question925" data-position="1">
+            <div class=" clearfix" id="quiz_question-925">
+
+    <h4 class="quiz_question">
+        
+        Question #2
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>Which of these stacks are keeping the order of insertion? (select all possible answers)</p>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="925">
+                <li class="">
+
+  <input type="checkbox" name="925" id="925-1573675302414" value="1573675302414" data-quiz-answer-id="1573675302414" data-quiz-question-id="925" disabled="disabled">
+  <label for="925-1573675302414"><p>FILO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="925" id="925-1573675350247" value="1573675350247" data-quiz-answer-id="1573675350247" data-quiz-question-id="925" disabled="disabled" checked="checked">
+  <label for="925-1573675350247"><p>LILO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="925" id="925-1573675291874" value="1573675291874" data-quiz-answer-id="1573675291874" data-quiz-question-id="925" disabled="disabled" checked="checked">
+  <label for="925-1573675291874"><p>FIFO</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="checkbox" name="925" id="925-1573675344887" value="1573675344887" data-quiz-answer-id="1573675344887" data-quiz-question-id="925" disabled="disabled">
+  <label for="925-1573675344887"><p>LIFO</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+          <div class="quiz_question_item_container" data-role="quiz_question930" data-position="4">
+            <div class=" clearfix" id="quiz_question-930">
+
+    <h4 class="quiz_question">
+        
+        Question #3
+    </h4>
+
+    <!-- Quiz question Body -->
+    <p>What’s the command used to remove a new element from a stack?</p>
+
+
+    <!-- Quiz question Answers -->
+        <ul class="quiz_question_answers" data-question-id="930">
+                <li class="">
+
+  <input type="radio" name="930" id="930-1573675596597" value="1573675596597" data-quiz-answer-id="1573675596597" data-quiz-question-id="930" disabled="disabled" checked="checked">
+  <label for="930-1573675596597"><p>pop</p>
+</label>
+</li>
+
+                <li class="">
+
+  <input type="radio" name="930" id="930-1573675594185" value="1573675594185" data-quiz-answer-id="1573675594185" data-quiz-question-id="930" disabled="disabled">
+  <label for="930-1573675594185"><p>push</p>
+</label>
+</li>
+
+        </ul>
+
+    <!-- Quiz question Tips -->
+
+</div>
+
+          </div>
+
+      </section>
+    </div>
+  </div>
+
+
+        
+          <h2 class="gap">Tasks</h2>
+
+    <div data-role="task1186" data-position="1" id="task-num-0">
+      <div class="panel panel-default task-card " id="task-1186">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      0. push, pall
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>push</code> and <code>pall</code> opcodes.</p>
+
+<p><strong>The push opcode</strong></p>
+
+<p>The opcode <code>push</code> pushes an element to the stack.</p>
+
+<ul>
+<li>Usage: <code>push &lt;int&gt;</code>
+
+<ul>
+<li>where <code>&lt;int&gt;</code> is an integer</li>
+</ul></li>
+<li>if <code>&lt;int&gt;</code> is not an integer or if there is no argument given to <code>push</code>, print the error message <code>L&lt;line_number&gt;: usage: push integer</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code>
+
+<ul>
+<li>where <line_number> is the line number in the file</line_number></li>
+</ul></li>
+<li>You won’t have to deal with overflows. Use the <code>atoi</code> function</li>
+</ul>
+
+<p><strong>The pall opcode</strong></p>
+
+<p>The opcode <code>pall</code> prints all the values on the stack, starting from the top of the stack.</p>
+
+<ul>
+<li>Usage <code>pall</code></li>
+<li>Format: see example</li>
+<li>If the stack is empty, don’t print anything</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat -e bytecodes/00.m
+push 1$
+push 2$
+push 3$
+pall$
+julien@ubuntu:~/monty$ ./monty bytecodes/00.m
+3
+2
+1
+julien@ubuntu:~/monty$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1186">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1186" data-batch-id="124" data-toggle="modal" data-target="#task-1186-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1186-users-done-modal" data-task-id="1186" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "0. push, pall"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1186}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1187" data-position="2" id="task-num-1">
+      <div class="panel panel-default task-card " id="task-1187">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      1. pint
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>pint</code> opcode.</p>
+
+<p><strong>The pint opcode</strong></p>
+
+<p>The opcode <code>pint</code> prints the value at the top of the stack, followed by a new line.</p>
+
+<ul>
+<li>Usage: <code>pint</code></li>
+<li>If the stack is empty, print the error message <code>L&lt;line_number&gt;: can't pint, stack empty</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/06.m 
+push 1
+pint
+push 2
+pint
+push 3
+pint
+julien@ubuntu:~/monty$ ./monty bytecodes/06.m 
+1
+2
+3
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1187">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1187" data-batch-id="124" data-toggle="modal" data-target="#task-1187-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1187-users-done-modal" data-task-id="1187" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "1. pint"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1187}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1188" data-position="3" id="task-num-2">
+      <div class="panel panel-default task-card " id="task-1188">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      2. pop
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>pop</code> opcode.</p>
+
+<p><strong>The pop opcode</strong></p>
+
+<p>The opcode <code>pop</code> removes the top element of the stack.</p>
+
+<ul>
+<li>Usage: <code>pop</code></li>
+<li>If the stack is empty, print the error message <code>L&lt;line_number&gt;: can't pop an empty stack</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/07.m 
+push 1
+push 2
+push 3
+pall
+pop
+pall
+pop
+pall
+pop
+pall
+julien@ubuntu:~/monty$ ./monty bytecodes/07.m 
+3
+2
+1
+2
+1
+1
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1188">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1188" data-batch-id="124" data-toggle="modal" data-target="#task-1188-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1188-users-done-modal" data-task-id="1188" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "2. pop"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1188}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1189" data-position="4" id="task-num-3">
+      <div class="panel panel-default task-card " id="task-1189">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      3. swap
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>swap</code> opcode.</p>
+
+<p><strong>The swap opcode</strong></p>
+
+<p>The opcode <code>swap</code> swaps the top two elements of the stack.</p>
+
+<ul>
+<li>Usage: <code>swap</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't swap, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/09.m 
+push 1
+push 2
+push 3
+pall
+swap
+pall
+julien@ubuntu:~/monty$ ./monty bytecodes/09.m 
+3
+2
+1
+2
+3
+1
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1189">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1189" data-batch-id="124" data-toggle="modal" data-target="#task-1189-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1189-users-done-modal" data-task-id="1189" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "3. swap"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1189}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1190" data-position="5" id="task-num-4">
+      <div class="panel panel-default task-card " id="task-1190">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      4. add
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>add</code> opcode.</p>
+
+<p><strong>The add opcode</strong></p>
+
+<p>The opcode <code>add</code> adds the top two elements of the stack.</p>
+
+<ul>
+<li>Usage: <code>add</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't add, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+
+<ul>
+<li>The top element of the stack contains the result</li>
+<li>The stack is one element shorter</li>
+</ul></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/12.m 
+push 1
+push 2
+push 3
+pall
+add
+pall
+
+julien@ubuntu:~/monty$ ./monty bytecodes/12.m 
+3
+2
+1
+5
+1
+julien@ubuntu:~/monty$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1190">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1190" data-batch-id="124" data-toggle="modal" data-target="#task-1190-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1190-users-done-modal" data-task-id="1190" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "4. add"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1190}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1191" data-position="6" id="task-num-5">
+      <div class="panel panel-default task-card " id="task-1191">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      5. nop
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          mandatory
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>nop</code> opcode.</p>
+
+<p><strong>The nop opcode</strong></p>
+
+<p>The opcode <code>nop</code> doesn’t do anything.</p>
+
+<ul>
+<li>Usage: <code>nop</code></li>
+</ul>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1191">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1191" data-batch-id="124" data-toggle="modal" data-target="#task-1191-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1191-users-done-modal" data-task-id="1191" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "5. nop"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1191}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1192" data-position="7" id="task-num-6">
+      <div class="panel panel-default task-card " id="task-1192">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      6. sub
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>sub</code> opcode.</p>
+
+<p><strong>The sub opcode</strong></p>
+
+<p>The opcode <code>sub</code> subtracts the top element of the stack from the second top element of the stack.</p>
+
+<ul>
+<li>Usage: <code>sub</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't sub, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+
+<ul>
+<li>The top element of the stack contains the result</li>
+<li>The stack is one element shorter</li>
+</ul></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/19.m 
+push 1
+push 2
+push 10
+push 3
+sub
+pall
+julien@ubuntu:~/monty$ ./monty bytecodes/19.m 
+7
+2
+1
+julien@ubuntu:~/monty$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1192">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1192" data-batch-id="124" data-toggle="modal" data-target="#task-1192-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1192-users-done-modal" data-task-id="1192" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "6. sub"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1192}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1193" data-position="8" id="task-num-7">
+      <div class="panel panel-default task-card " id="task-1193">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      7. div
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>div</code> opcode.</p>
+
+<p><strong>The div opcode</strong></p>
+
+<p>The opcode <code>div</code> divides the second top element of the stack by the top element of the stack.</p>
+
+<ul>
+<li>Usage: <code>div</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't div, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+
+<ul>
+<li>The top element of the stack contains the result</li>
+<li>The stack is one element shorter</li>
+</ul></li>
+<li>If the top element of the stack is <code>0</code>, print the error message <code>L&lt;line_number&gt;: division by zero</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1193">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1193" data-batch-id="124" data-toggle="modal" data-target="#task-1193-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1193-users-done-modal" data-task-id="1193" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "7. div"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1193}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1194" data-position="9" id="task-num-8">
+      <div class="panel panel-default task-card " id="task-1194">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      8. mul
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>mul</code> opcode.</p>
+
+<p><strong>The mul opcode</strong></p>
+
+<p>The opcode <code>mul</code> multiplies the second top element of the stack with the top element of the stack.</p>
+
+<ul>
+<li>Usage: <code>mul</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't mul, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+
+<ul>
+<li>The top element of the stack contains the result</li>
+<li>The stack is one element shorter</li>
+</ul></li>
+</ul>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1194">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1194" data-batch-id="124" data-toggle="modal" data-target="#task-1194-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1194-users-done-modal" data-task-id="1194" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "8. mul"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1194}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1195" data-position="10" id="task-num-9">
+      <div class="panel panel-default task-card " id="task-1195">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      9. mod
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>mod</code> opcode.</p>
+
+<p><strong>The mod opcode</strong></p>
+
+<p>The opcode <code>mod</code> computes the rest of the division of the second top element of the stack by the top element of the stack.</p>
+
+<ul>
+<li>Usage: <code>mod</code></li>
+<li>If the stack contains less than two elements, print the error message <code>L&lt;line_number&gt;: can't mod, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+
+<ul>
+<li>The top element of the stack contains the result</li>
+<li>The stack is one element shorter</li>
+</ul></li>
+<li>If the top element of the stack is <code>0</code>, print the error message <code>L&lt;line_number&gt;: division by zero</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1195">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1195" data-batch-id="124" data-toggle="modal" data-target="#task-1195-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1195-users-done-modal" data-task-id="1195" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "9. mod"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1195}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1196" data-position="11" id="task-num-10">
+      <div class="panel panel-default task-card " id="task-1196">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      10. comments
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Every good language comes with the capability of commenting. When the first non-space character of a line is <code>#</code>, treat this line as a comment (don’t do anything).</p>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1196">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1196" data-batch-id="124" data-toggle="modal" data-target="#task-1196-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1196-users-done-modal" data-task-id="1196" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "10. comments"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1196}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1197" data-position="12" id="task-num-11">
+      <div class="panel panel-default task-card " id="task-1197">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      11. pchar
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>pchar</code> opcode.</p>
+
+<p><strong>The pchar opcode</strong></p>
+
+<p>The opcode <code>pchar</code> prints the char at the top of the stack, followed by a new line.</p>
+
+<ul>
+<li>Usage: <code>pchar</code></li>
+<li>The integer stored at the top of the stack is treated as the ascii value of the character to be printed</li>
+<li>If the value is not in the ascii table (man ascii) print the error message <code>L&lt;line_number&gt;: can't pchar, value out of range</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is empty, print the error message <code>L&lt;line_number&gt;: can't pchar, stack empty</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/28.m 
+push 72
+pchar
+julien@ubuntu:~/monty$ ./monty bytecodes/28.m 
+H
+julien@ubuntu:~/monty$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1197">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1197" data-batch-id="124" data-toggle="modal" data-target="#task-1197-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1197-users-done-modal" data-task-id="1197" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "11. pchar"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1197}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1198" data-position="13" id="task-num-12">
+      <div class="panel panel-default task-card " id="task-1198">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      12. pstr
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>pstr</code> opcode.</p>
+
+<p><strong>The pstr opcode</strong></p>
+
+<p>The opcode <code>pstr</code> prints the string starting at the top of the stack, followed by a new line.</p>
+
+<ul>
+<li>Usage: <code>pstr</code></li>
+<li>The integer stored in each element of the stack is treated as the ascii value of the character to be printed</li>
+<li>The string stops when either:
+
+<ul>
+<li>the stack is over</li>
+<li>the value of the element is 0</li>
+<li>the value of the element is not in the ascii table</li>
+</ul></li>
+<li>If the stack is empty, print only a new line</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/31.m 
+push 1
+push 2
+push 3
+push 4
+push 0
+push 110
+push 0
+push 108
+push 111
+push 111
+push 104
+push 99
+push 83
+pstr
+julien@ubuntu:~/monty$ ./monty bytecodes/31.m 
+School
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1198">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1198" data-batch-id="124" data-toggle="modal" data-target="#task-1198-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1198-users-done-modal" data-task-id="1198" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "12. pstr"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1198}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1199" data-position="14" id="task-num-13">
+      <div class="panel panel-default task-card " id="task-1199">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      13. rotl
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>rotl</code> opcode.</p>
+
+<p><strong>The rotl opcode</strong></p>
+
+<p>The opcode <code>rotl</code> rotates the stack to the top.</p>
+
+<ul>
+<li>Usage: <code>rotl</code></li>
+<li>The top element of the stack becomes the last one, and the second top element of the stack becomes the first one</li>
+<li><code>rotl</code> never fails</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/35.m 
+push 1
+push 2
+push 3
+push 4
+push 5
+push 6
+push 7
+push 8
+push 9
+push 0
+pall
+rotl
+pall
+julien@ubuntu:~/monty$ ./monty bytecodes/35.m 
+0
+9
+8
+7
+6
+5
+4
+3
+2
+1
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1199">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1199" data-batch-id="124" data-toggle="modal" data-target="#task-1199-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1199-users-done-modal" data-task-id="1199" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "13. rotl"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1199}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1200" data-position="15" id="task-num-14">
+      <div class="panel panel-default task-card " id="task-1200">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      14. rotr
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>rotr</code> opcode.</p>
+
+<p><strong>The rotr opcode</strong></p>
+
+<p>The opcode <code>rotr</code> rotates the stack to the bottom.</p>
+
+<ul>
+<li>Usage: <code>rotr</code></li>
+<li>The last element of the stack becomes the top element of the stack</li>
+<li><code>rotr</code> never fails</li>
+</ul>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1200">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1200" data-batch-id="124" data-toggle="modal" data-target="#task-1200-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1200-users-done-modal" data-task-id="1200" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "14. rotr"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1200}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1201" data-position="16" id="task-num-15">
+      <div class="panel panel-default task-card " id="task-1201">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      15. stack, queue
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Implement the <code>stack</code> and <code>queue</code> opcodes.</p>
+
+<p><strong>The stack opcode</strong></p>
+
+<p>The opcode <code>stack</code> sets the format of the data to a stack (LIFO). This is the default behavior of the program.</p>
+
+<ul>
+<li>Usage: <code>stack</code></li>
+</ul>
+
+<p><strong>The queue opcode</strong></p>
+
+<p>The opcode <code>queue</code> sets the format of the data to a queue (FIFO).</p>
+
+<ul>
+<li>Usage: <code>queue</code></li>
+</ul>
+
+<p>When switching mode:</p>
+
+<ul>
+<li>The top of the stack becomes the front of the queue</li>
+<li>The front of the queue becomes the top of the stack</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty$ cat bytecodes/47.m
+queue
+push 1
+push 2
+push 3
+pall
+stack
+push 4
+push 5
+push 6
+pall
+add
+pall
+queue
+push 11111
+add
+pall
+julien@ubuntu:~/monty$ ./monty bytecodes/47.m
+1
+2
+3
+6
+5
+4
+1
+2
+3
+11
+4
+1
+2
+3
+15
+1
+2
+3
+11111
+julien@ubuntu:~/monty$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1201">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1201" data-batch-id="124" data-toggle="modal" data-target="#task-1201-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1201-users-done-modal" data-task-id="1201" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "15. stack, queue"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1201}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1202" data-position="17" id="task-num-16">
+      <div class="panel panel-default task-card " id="task-1202">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      16. Brainf*ck
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Write a Brainf*ck script that prints <code>School</code>, followed by a new line.</p>
+
+<ul>
+<li>All your Brainf*ck files should be stored inside the <code>bf</code> sub directory</li>
+<li>You can install the <code>bf</code> interpreter to test your code: <code>sudo apt-get install bf</code></li>
+<li>Read: <a href="https://intranet.alxswe.com/rltoken/x0I37o6PVmnT0M1RF0XXjg" title="Brainf*ck" target="_blank">Brainf*ck</a> </li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty/bf$ bf 1000-school.bf 
+School
+julien@ubuntu:~/monty/bf$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+            <li>Directory: <code>bf</code></li>
+            <li>File: <code>1000-school.bf</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1202">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1202" data-batch-id="124" data-toggle="modal" data-target="#task-1202-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1202-users-done-modal" data-task-id="1202" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "16. Brainf*ck"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1202}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1203" data-position="18" id="task-num-17">
+      <div class="panel panel-default task-card " id="task-1203">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      17. Add two digits
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Add two digits given by the user.</p>
+
+<ul>
+<li>Read the two digits from stdin, add them, and print the result</li>
+<li>The total of the two digits with be one digit-long (&lt;10)</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty/bf$ bf ./1001-add.bf
+81
+9julien@ubuntu:~/monty/bf$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+            <li>Directory: <code>bf</code></li>
+            <li>File: <code>1001-add.bf</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1203">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1203" data-batch-id="124" data-toggle="modal" data-target="#task-1203-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1203-users-done-modal" data-task-id="1203" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "17. Add two digits"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1203}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1204" data-position="19" id="task-num-18">
+      <div class="panel panel-default task-card " id="task-1204">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      18. Multiplication
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Multiply two digits given by the user.</p>
+
+<ul>
+<li>Read the two digits from stdin, multiply them, and print the result</li>
+<li>The result of the multiplication will be one digit-long (&lt;10)</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty/bf$ bf 1002-mul.bf
+24
+8julien@ubuntu:~/monty/bf$
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+            <li>Directory: <code>bf</code></li>
+            <li>File: <code>1002-mul.bf</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1204">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1204" data-batch-id="124" data-toggle="modal" data-target="#task-1204-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1204-users-done-modal" data-task-id="1204" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "18. Multiplication"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1204}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+    <div data-role="task1205" data-position="20" id="task-num-19">
+      <div class="panel panel-default task-card " id="task-1205">
+  <span id="user_id" data-id="513210"></span>
+
+  <div class="panel-heading panel-heading-actions">
+    <h3 class="panel-title">
+      19. Multiplication level up
+    </h3>
+
+    <div><button class="collapse-button btn close" style="font-size: 1.25rem; outline: none; opacity: 0.4; width: 2rem;"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+        <span class="label label-info">
+          #advanced
+        </span>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <span id="user_id" data-id="513210"></span>
+
+    <!-- Progress vs Score -->
+
+    <!-- Task Body -->
+    <p>Multiply two digits given by the user.<br>
+<br>
+<img src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/brainfuck_bean.jpg"><br>
+<br></p>
+
+<ul>
+<li>Read the two digits from stdin, multiply them, and print the result, followed by a new line</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/monty/bf$ bf 1003-mul.bf 
+77
+49
+julien@ubuntu:~/monty/bf$ 
+</code></pre>
+
+  </div>
+
+  <div class="list-group">
+    <!-- Task URLs -->
+
+    <!-- Github information -->
+      <div class="list-group-item">
+        <p><strong>Repo:</strong></p>
+        <ul>
+          <li>GitHub repository: <code>monty</code></li>
+            <li>Directory: <code>bf</code></li>
+            <li>File: <code>1003-mul.bf</code></li>
+        </ul>
+      </div>
+
+    <!-- Self-paced manual review -->
+  </div>
+
+  <!-- Panel footer - Controls -->
+  <div class="panel-footer">
+      <div class="align-items-center d-flex justify-content-between">
+        
+<div>
+    <button class="student_task_done btn btn-default btn-sm no" data-task-id="1205">
+      <span class="no"><i aria-hidden="true" class="fa-regular fa-square "></i></span>
+      <span class="yes"><i aria-hidden="true" class="fa-regular fa-square-check "></i></span>
+      <span class="pending"><i aria-hidden="true" class="fa-solid fa-spinner  fa-spin-pulse"></i></span>
+      Done<span class="no pending">?</span><span class="yes">!</span>
+    </button>
+
+  <button class="student-task-done-by btn btn-default btn-sm" data-task-id="1205" data-batch-id="124" data-toggle="modal" data-target="#task-1205-users-done-modal">
+    Help
+  </button>
+  <div class="modal fade users-done-modal" id="task-1205-users-done-modal" data-task-id="1205" data-batch-id="124">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Learners who are done with "19. Multiplication level up"</h4>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="error"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#container-specs-modal" data-gtm-custom-event-name="task_sandbox_modal" data-gtm-custom-event-options="{&quot;taskId&quot;:1205}"><i aria-hidden="true" class="fa-solid fa-terminal "></i><span>Get a sandbox</span></button>
+
+</div>
+
+
+        <div class="fs-4">
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+    </div>
+
+
+
+
+
+          <div class="modal fade" id="container-specs-modal"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title">Recommended Sandbox</h4></div><div class="modal-body"><div data-react-class="user_containers/ContainerSpecs" data-react-props="{&quot;containerModelName&quot;:&quot;Sandbox&quot;,&quot;containerSpecs&quot;:[{&quot;available&quot;:true,&quot;description&quot;:&quot;\u003cp\u003eBasic Ubuntu 20.04, with vim, emacs, curl, wget and all needed for Foundations\u003c/p\u003e\n&quot;,&quot;id&quot;:39,&quot;name&quot;:&quot;Ubuntu 20.04&quot;,&quot;online&quot;:true,&quot;container&quot;:{&quot;container_id&quot;:null,&quot;id&quot;:609205,&quot;restart_uri&quot;:&quot;/user_containers/609205/restart.json&quot;,&quot;status&quot;:&quot;asleep&quot;,&quot;uri&quot;:&quot;/user_containers/609205.json&quot;,&quot;wake_uri&quot;:&quot;/user_containers/609205/wake.json&quot;,&quot;webterm_uri&quot;:&quot;/user_containers/609205/webterm&quot;,&quot;host&quot;:null,&quot;password&quot;:&quot;735ce04a79ba1c7c0830&quot;,&quot;ports&quot;:{&quot;4000&quot;:57123,&quot;80&quot;:57127,&quot;8080&quot;:57119,&quot;443&quot;:57126,&quot;5000&quot;:57122,&quot;5001&quot;:57121,&quot;8000&quot;:57120,&quot;22&quot;:57128,&quot;3000&quot;:57125,&quot;3306&quot;:57124}}}],&quot;containersLimit&quot;:2,&quot;csrfToken&quot;:&quot;0M1TtBUWKtzSP0npvxAUUf9jnfuBTrUG6XSPkHdIM-lGUwaxyephS5z5h-c1CjrGysB4QLjEn01wAEd7tK0mcQ&quot;,&quot;startStatusURI&quot;:&quot;/user_containers/start_status.json&quot;,&quot;startURI&quot;:&quot;/user_containers/start.json&quot;}" data-react-cache-id="user_containers/ContainerSpecs-0"><div><div class="d-flex gap-4 sandboxes-filters"><a class="btn btn-outline-primary"><i aria-hidden="true" class="fa-solid fa-filter"></i><span class="ml-2">Running only</span></a><div class="align-items-center d-flex" style="position: relative; width: 100%;"><input class="form-control" placeholder="Search for an image ..." type="search" value=""></div></div><div class="mt-3"><h3>1 image<small class="ml-2">(1/2 Sandboxes spawned)</small></h3></div><div class="mt-3"><div class="panel panel-default"><div class="panel-body border-left-info" style="border-left: 6px solid;"><div class="align-items-center d-flex flex-wrap justify-content-between"><div><h3 class="mt-0"><i aria-hidden="true" class="fa-solid fa-terminal text-info"></i><span class="ml-2">Ubuntu 20.04</span><span class="fs-4 label label-info ml-2">Asleep</span></h3><div class="mt-2 text-muted"><p>Basic Ubuntu 20.04, with vim, emacs, curl, wget and all needed for Foundations</p>
+</div></div><div class="d-flex flex-wrap gap-5"><a class="btn btn-success"><i aria-hidden="true" class="fa-solid fa-play"></i><span class="ml-2">Wake</span></a><a class="btn btn-danger"><i aria-hidden="true" class="fa-solid fa-trash"></i><span class="ml-2">Destroy</span></a></div></div></div></div></div></div></div></div></div></div></div>
+
+  </div>
+</div>
+
+
+      </article>
+
+      <div class="copyright">Copyright © 2023 ALX, All rights reserved.</div>
+
+    </main>
+
+        <button class="btn btn-primary atop-zendesk" id="search-button" data-search-active="false" data-toggle="modal" data-target="#search-modal">
+  <i aria-hidden="true" class="fa-solid fa-magnifying-glass "></i>
+  <i aria-hidden="true" class="fa-solid fa-window-minimize "></i>
+</button>
+
+        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal-label">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div id="search-bar-container">
+    <input id="search-bar" autocomplete="off" type="text" name="hbtn-search-bar" placeholder="✨Start search by typing in this field✨">
+</div>
+
+            </div>
+            <div class="modal-body">
+                <div id="modal-spinner" class="spinner gap">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <div id="search-results-container">
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="modal fade" id="markdownGuideModal" tabindex="-1" role="dialog" aria-labelledby="markdownGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Markdown Guide</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Emphasis</h4>
+<pre>**<strong>bold</strong>**
+*<em>italics</em>*
+~~<strike>strikethrough</strike>~~</pre>
+<h4>Headers</h4>
+<pre># Big header
+## Medium header
+### Small header
+#### Tiny header</pre>
+<h4>Lists</h4>
+<pre>* Generic list item
+* Generic list item
+* Generic list item
+
+1. Numbered list item
+2. Numbered list item
+3. Numbered list item</pre>
+<h4>Links</h4>
+<pre>[Text to display](http://www.example.com)</pre>
+<h4>Quotes</h4>
+<pre>&gt; This is a quote.
+&gt; It can span multiple lines!</pre>
+<h4>Images</h4>
+<p>CSS style available: <code>width, height, opacity</code></p>
+<pre>![](http://www.example.com/image.jpg)
+![](http://www.example.com/image.jpg | width: 200px)
+![](http://www.example.com/image.jpg | height: 124px | width: 80px | opacity: 0.6)
+</pre>
+<h4>Tables</h4>
+<pre>| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John     | Doe      | Male     |
+| Mary     | Smith    | Female   |
+
+<em>Or without aligning the columns...</em>
+
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| John | Doe | Male |
+| Mary | Smith | Female |
+</pre>
+<h4>Displaying code</h4>
+<pre>`var example = "hello!";`
+
+<em>Or spanning multiple lines...</em>
+
+```
+var example = "hello!";
+alert(example);
+```</pre>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        <script id="ze-snippet" src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/snippet.js"></script>
+        <script type="text/javascript">
+          zE('webWidget', 'prefill', {
+              email: {
+                  value: 'hfibrahim90@gmail.com',
+                  readOnly: true
+              }
+          });
+        </script>
+  
+
+<div id="tsparticles"></div><iframe data-product="web_widget" title="No content" role="presentation" tabindex="-1" allow="microphone *" aria-hidden="true" src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/saved_resource.html" style="width: 0px; height: 0px; border: 0px; position: absolute; top: -9999px;"></iframe><script src="chrome-extension://igkkmokkmlbkkgdnkkancbonkbbmkioc/sm.bundle.js" data-pname="recorder-screenshot-v3" data-asset-path="https://apv3.s3.ap-northeast-2.amazonaws.com"></script><div style="display: none" class="ubey-RecordingScreen-count-down ubey-RecordingScreen-count-down-container">
+          <style>
+              .ubey-RecordingScreen-count-down-container {
+                  position: fixed;
+                  height: 100vh;
+                  width: 100vw;
+                  top: 0;
+                  left: 0;
+                  z-index: 9999999999999;
+                  background-color: rgba(0, 0, 0, 0.2);
+              }
+      
+              .ubey-RecordingScreen-count-down-content {
+                  position: absolute;
+                  display: flex;
+                  top: 50%;
+                  left: 50%;
+                  justify-content: center;
+                  align-items: center;
+                  color: white;
+                  height: 15em;
+                  width: 15em;
+                  transform: translate(-50%, -100%);
+                  background-color: rgba(0, 0, 0, 0.6);
+                  border-radius: 50%;
+              }
+      
+              #ubey-RecordingScreen-count-count {
+                  font-size: 14em;
+                  transform: translateY(-2%);
+              }
+          </style>
+          <div class="ubey-RecordingScreen-count-down-content">
+              <span id="ubey-RecordingScreen-count-count"></span>
+          </div>
+      </div><div><iframe title="Opens a widget where you can find more information" id="launcher" tabindex="0" style="color-scheme: light; width: 108px; height: 50px; padding: 0px; margin: 10px 20px; position: fixed; bottom: 0px; overflow: visible; opacity: 1; border: 0px; z-index: 999998; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); transition-property: opacity, top, bottom; right: 0px;" src="./Project_ 0x19. C - Stacks, Queues - LIFO, FIFO _ ALX Africa Intranet_files/saved_resource(1).html"></iframe></div></body></html>
