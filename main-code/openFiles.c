@@ -15,7 +15,6 @@
  * Note:
  *   - Ensure that the file path is valid and accessible.
 */
-FILE *openfiles(const char *filePath);
 FILE *openfiles(const char *filePath)
 {
 	/* Create the pointer to accsses the file from type "FILE"  */
