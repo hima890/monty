@@ -1,0 +1,20 @@
+Test Case 1 Result:
+Instructions:
+  push
+  0
+
+
+Test Case 2 Result:
+Instructions:
+  push
+  5
+  
+
+
+Test Case 3 Result:
+Instructions:
+  
+
+
+Test Case 4 Result:
+Error: Invalid line buffer pointer.

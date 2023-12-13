@@ -22,7 +22,7 @@ FILE *openThefiles(char *filePath)
 	FILE *filePointer;
 
 	/* Open the file in binary read mode */
-	filePointer = fopen(filePath, "rb");
+	filePointer = fopen(filePath, "r");
 
 	/* Check if the file is successfully opened */
 	if (filePointer == NULL)
