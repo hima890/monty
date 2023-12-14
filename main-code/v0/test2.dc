@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LINE_LENGTH 256
+
+void readAndPrintLines(const char *filename)
+{
+	FILE *file = fopen(filename, "r");
+	if (file == NULL)
+	{
+		perror("Error opening file");
+		return;
+	}
+
+	line[MAX_LINE_LENGTH];
+	while (fgets(line, MAX_LINE_LENGTH, file) != NULL)
+	{
+		printf("%s", line);
+	}
+
+	fclose(file);
+}
+
+int main()
+{
+	const char *filename = "/home/ahmed/Desktop/ALX-SE/monty/main-code/bytecodes/000.m"; // Replace with your file name
+	readAndPrintLines(filename);
+
+	return 0;
+}

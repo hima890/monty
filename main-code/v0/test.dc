@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char buffer[] = "This is line 1\nThis is line 2\nThis is line 3";
+
+	// Create a copy of the buffer to avoid modifying the original content
+	char copyBuffer[sizeof(buffer)];
+	strcpy(copyBuffer, buffer);
+
+	// Tokenize each line separately using getline and strtok
+	char *saveptr;
+	char *line = strtok(copyBuffer, "\n");
+
+	while (line != NULL)
+	{
+		// Tokenize each word in the line separately
+		char *word = strtok(line, " ");
+
+		while (word != NULL)
+		{
+			printf("Line: %s\n", line);
+			printf("Token: %s\n", word);
+			word = strtok(NULL, " ");
+		}
+
+		// Get the next line using getline and strtok_r
+		line = strtok(NULL, "\n");
+	}
+
+	return 0;
+}

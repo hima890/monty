@@ -1,0 +1,30 @@
+fileBufferCopy = my_strdup(fileBuffer);
+	lineToken = strchr(fileBufferCopy, '\n');
+	while (lineToken != NULL)
+	{
+		int i;
+		if (lineToken[0] == '\0')
+		{
+			lineToken = strtok(NULL, "\n");
+			continue;
+		}
+
+		tokenizeArg = tokenizeInput(lineToken);
+
+		if (tokenizeArg == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			free(fileBuffer);
+			exit(EXIT_FAILURE);
+		}
+
+		for (i = 0; tokenizeArg[i] != NULL; i++)
+		{
+			printf("%s \n", tokenizeArg[i]);
+			free(tokenizeArg[i]);
+		}
+
+		free(tokenizeArg);
+
+		lineToken = strchr(fileBufferCopy, '\n');
+	}

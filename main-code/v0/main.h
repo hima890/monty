@@ -4,7 +4,6 @@
 
 /* Function prototype */
 int checkArguments(int argc);
-char *readFiles(FILE *filePointer);
 char **tokenizeInput(char *lineBuffer);
 char **duplicateStringArray(char **array);
 void printInstructions(char **instructions);
