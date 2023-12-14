@@ -92,6 +92,50 @@ int main(int argc, char const *argv[])
 		{
 			nop(&stack, lineNumber);
 		}
+		else if (strcmp(opcode, "sub") == 0)
+		{
+			sub(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "div") == 0)
+		{
+			div_op(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "mul") == 0)
+		{
+			mul(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "mod") == 0)
+		{
+			mod(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "pchar") == 0)
+		{
+			pchar(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "pstr") == 0)
+		{
+			pstr(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "rotl") == 0)
+		{
+			rotl(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "rotr") == 0)
+		{
+			rotr(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "stack") == 0)
+		{
+			stack2(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "queue") == 0)
+		{
+			queue(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "#") == 0)
+		{
+			nop(&stack, lineNumber);
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
