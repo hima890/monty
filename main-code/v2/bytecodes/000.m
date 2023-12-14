@@ -5,6 +5,6 @@ swap
 pop
 pall
 pop
-swap
+# swap
 pop
 pall
