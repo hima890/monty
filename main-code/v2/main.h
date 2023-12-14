@@ -41,5 +41,10 @@ void printInstructions(char **instructions);
 void freeInstructions(char **instructions);
 FILE *openfiles(const char *filePath);
 char *my_strdup(const char *original);
+int isStringInteger(char *str);
+void push(stack_t **stack, int n);
+void pall_func(stack_t **stack);
+void free_stack(stack_t **stack);
+int _isdigit(int c);
 
 #endif
