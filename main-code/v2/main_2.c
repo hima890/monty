@@ -99,6 +99,14 @@ int main(int argc, char const *argv[])
 		{
 			swap(&stack, lineNumber);
 		}
+		else if (strcmp(opcode, "add") == 0)
+		{
+			add(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "nop") == 0)
+		{
+			nop(&stack, lineNumber);
+		}
 		
 		else
 		{
@@ -244,4 +252,25 @@ void swap(stack_t **stack, unsigned int lineNumber)
 	first->prev = second;
 
 	*stack = second;
+}
+
+/* Function to add the top two elements of the stack */
+void add(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n += (*stack)->n;
+	pop(stack, line_number);
+}
+
+/* Function to do nothing (nop) */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	/* This function does nothing */
 }
