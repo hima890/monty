@@ -49,30 +49,20 @@ char *my_strdup(const char *original)
  */
 char **duplicateStringArray(char **array)
 {
-	int count, i;
+	int i, j, count;
 	char **duplicate;
 
 	if (array == NULL)
-	{
 		return (NULL);
-	}
 
 	count = 0;
-
 	while (array[count] != NULL)
-	{
 		count++;
-	}
 
 	duplicate = malloc((count + 1) * sizeof(char *));
-
 	if (duplicate == NULL)
 	{
-		fprintf(stderr, "Error: Memory allocation failed.\n");
-		for (i = 0; array[i] != NULL; i++)
-		{
-			free(array[i]);
-		}
+		perror("Error: Memory allocation failed.");
 		return (NULL);
 	}
 
@@ -81,21 +71,15 @@ char **duplicateStringArray(char **array)
 		duplicate[i] = my_strdup(array[i]);
 		if (duplicate[i] == NULL)
 		{
-			fprintf(stderr, "Error: Memory allocation failed.\n");
+			perror("Error: Memory allocation failed.");
+			for (j = 0; j < i; j++)
+				free(duplicate[j]);
 			free(duplicate);
-			for (i = 0; array[i] != NULL; i++)
-			{
-				free(array[i]);
-			}
 			return (NULL);
 		}
 	}
-	for (i = 0; array[i] != NULL; i++)
-	{
-		free(array[i]);
-	}
-	duplicate[count] = NULL;
 
+	duplicate[count] = NULL;
 	return (duplicate);
 }
 
@@ -112,6 +96,7 @@ char **duplicateStringArray(char **array)
 void printInstructions(char **instructions)
 {
 	int i;
+
 	if (instructions == NULL)
 	{
 		/**
