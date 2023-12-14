@@ -87,6 +87,19 @@ int main(int argc, char const *argv[])
 		{
 			pall_func(&stack);
 		}
+		else if (strcmp(opcode, "pint") == 0)
+		{
+			pint(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "pop") == 0)
+		{
+			pop(&stack, lineNumber);
+		}
+		else if (strcmp(opcode, "swap") == 0)
+		{
+			swap(&stack, lineNumber);
+		}
+		
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
@@ -174,4 +187,61 @@ void pall_func(stack_t **stack)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+}
+
+/* Function to print the value at the top of the stack */
+void pint(stack_t **stack, unsigned int lineNumber)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", lineNumber);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
+}
+
+/* Function to remove the top element from the stack */
+void pop(stack_t **stack, unsigned int lineNumber)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", lineNumber);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+
+	free(temp);
+}
+
+/* Function to swap the top two elements of the stack */
+void swap(stack_t **stack, unsigned int lineNumber)
+{
+	stack_t *first;
+	stack_t *second;
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", lineNumber);
+		exit(EXIT_FAILURE);
+	}
+
+	first = *stack;
+	second = first->next;
+
+	first->next = second->next;
+	if (second->next != NULL)
+		second->next->prev = first;
+
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+
+	*stack = second;
 }

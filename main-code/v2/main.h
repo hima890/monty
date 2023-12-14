@@ -45,6 +45,9 @@ int isStringInteger(char *str);
 void push(stack_t **stack, int n);
 void pall_func(stack_t **stack);
 void free_stack(stack_t **stack);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int lineNumber);
 int _isdigit(int c);
 
 #endif

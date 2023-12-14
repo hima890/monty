@@ -1,7 +1,10 @@
 push 1
+push 2
+push 3
 pall
-push 52
-push 959
+pop
 pall
-push asd
+pop
+pall
+pop
 pall
