@@ -88,6 +88,10 @@ int main(int argc, char const *argv[])
 		{
 			add(&stack, lineNumber);
 		}
+		else if (strcmp(opcode, "nop") == 0)
+		{
+			nop(&stack, lineNumber);
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, opcode);
